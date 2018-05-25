@@ -7,14 +7,15 @@ import Foot from '../components/Foot'
 
 import iconMake from '../res/icon_make.svg'
 
-export default () => (
-  <Page className="Index" transition={true} ptr={false}>
+export default (props) => (
+  <Page className="Index" transition={false} ptr={false}>
     <Article>
       <section>
         <Title></Title>
       </section>
       <section className="SectionUpload" >
-        <a href="#" className="btnUpload" >
+        <a href="#" className={props.uploading ? "btnUpload disabled" : "btnUpload"} >
+          <input type="file" accept="image/*" onChange={props.onSelectFile } />
           <div className="shadow s1" ></div>
           <div className="shadow s2" ></div>
           <div className="btnContent">
