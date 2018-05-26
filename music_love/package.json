@@ -19,5 +19,6 @@
   },
   "devDependencies": {
     "react-svg-loader": "^2.1.0"
-  }
+  },
+  "homepage": "./"
 }
