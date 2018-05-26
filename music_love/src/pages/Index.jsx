@@ -6,6 +6,7 @@ import Title from '../components/Title'
 import Foot from '../components/Foot'
 
 import iconMake from '../res/icon_make.svg'
+import "./Index.css"
 
 export default (props) => (
   <Page className="Index" transition={false} ptr={false}>

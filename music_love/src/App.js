@@ -6,8 +6,8 @@ import 'react-weui/build/packages/react-weui.css';
 
 import Index from "./pages/Index"
 import Make from "./pages/Make"
+import ClipUtil from "./pages/ClipUtil"
 import Proview from "./pages/Proview"
-import AlloyFinger from 'alloyfinger/react/AlloyFinger';
 
 class App extends Component {
 
@@ -16,8 +16,22 @@ class App extends Component {
     this.state = {
       uploading : false,
       uploadImg : undefined,
+      uploadClipImg : undefined,
       proviewImg : undefined,
     }
+  }
+
+  onOutputImage(img) {
+    this.setState({
+      proviewImg : img
+    })
+  }
+
+  onClipImage(img) {
+      console.log("onClipImage", img)
+      this.setState({
+        proviewImg : img
+      })
   }
 
   onSelectFile(event) {
@@ -46,9 +60,18 @@ class App extends Component {
           that.state.proviewImg
             ? <Proview {...that.state} ></Proview>
             : (
-              that.state.uploadImg
-              ? <Make {...that.state} ></Make>
-              : <Index onSelectFile={this.onSelectFile.bind(that)} {...that.state} ></Index>
+              !that.state.uploadImg
+              ? <Index onSelectFile={this.onSelectFile.bind(that)} {...that.state} ></Index>
+              : (
+                !that.state.uploadClipImg
+                ? <ClipUtil onClipImage={that.onClipImage.bind(that)}
+                      srcImage={that.state.uploadImg}
+                      size={200}
+                      circle={true}
+                      onClipImage={that.onClipImage.bind(that)}
+                      ></ClipUtil>
+                : <Make onOutputImage={that.onOutputImage.bind(that)} {...that.state} ></Make>
+              )
             )
         }
       </div>

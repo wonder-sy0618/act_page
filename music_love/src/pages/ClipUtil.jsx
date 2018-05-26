@@ -2,11 +2,7 @@
 import React, { Component } from 'react';
 import AlloyCrop from "alloycrop"
 
-import Title from '../components/Title'
-
-import "./Make.css"
-
-class Make extends Component {
+class ClipUtil extends Component {
 
   constructor(props, context) {
     super(props, context)
@@ -17,14 +13,14 @@ class Make extends Component {
   componentDidMount() {
     let that = this;
     new AlloyCrop({
-            image_src: this.props.uploadImg,
-            circle:true, // optional parameters , the default value is false
-            width: 200,
-            height: 200,
+            image_src: this.props.srcImage,
+            circle: this.props.circle, // optional parameters , the default value is false
+            width: this.props.size,
+            height: this.props.size,
             output: 1.5,
             ok: function (base64, canvas) {
               console.log("ok", base64, canvas)
-              that.props.onOutputImage(base64)
+              that.props.onClipImage(base64)
             },
             cancel: function () {
               console.log("cancel")
@@ -37,9 +33,9 @@ class Make extends Component {
   render() {
     let that = this;
     return (
-      <div className="Make" >
+      <div className="ClipUtil" >
       </div>
     );
   }
 }
-export default Make
+export default ClipUtil
