@@ -22,7 +22,7 @@ export default (props) => (
           <div className="btnContent">
            <img src={iconMake} />
            <br/>
-           <span>参加活动</span>
+           <span>参与活动</span>
           </div>
         </a>
       </section>
