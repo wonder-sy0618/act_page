@@ -1,10 +1,11 @@
 
 import React, { Component } from 'react';
-import AlloyCrop from "alloycrop"
 
+import imgtreat from "../service/imgtreat/"
 import Title from '../components/Title'
 
 import "./Make.css"
+import outputBg from '../res/output_bg.png'
 
 class Make extends Component {
 
@@ -14,24 +15,24 @@ class Make extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     let that = this;
-    new AlloyCrop({
-            image_src: this.props.uploadImg,
-            circle:true, // optional parameters , the default value is false
-            width: 200,
-            height: 200,
-            output: 1.5,
-            ok: function (base64, canvas) {
-              console.log("ok", base64, canvas)
-              that.props.onOutputImage(base64)
-            },
-            cancel: function () {
-              console.log("cancel")
-            },
-            ok_text: "确认", // optional parameters , the default value is ok
-            cancel_text: "取消" // optional parameters , the default value is cancel
-     });
+    let img = await new Promise((success) => {
+      let img = new Image();
+      img.src = outputBg
+      img.onload = () => {
+        success(img)
+      }
+    });
+    let cavans = await imgtreat.create(img.width, img.height);
+    let imgUpload = await imgtreat.imageOpen(that.props.uploadClipImg);
+    cavans.getContext("2d").drawImage(
+      imgUpload, that.props.config.uploadImgLocal.x, that.props.config.uploadImgLocal.y,
+      that.props.config.uploadImgLocal.width * that.props.config.uploadScale, that.props.config.uploadImgLocal.height * that.props.config.uploadScale);
+    let imgBg = await imgtreat.imageOpen(outputBg);
+    cavans.getContext("2d").drawImage(imgBg, 0, 0, cavans.width, cavans.height);
+    // 导出图片
+    that.props.onOutputImage(cavans.toDataURL("image/png"));
   }
 
   render() {

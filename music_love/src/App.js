@@ -9,11 +9,22 @@ import Make from "./pages/Make"
 import ClipUtil from "./pages/ClipUtil"
 import Proview from "./pages/Proview"
 
+const config = {
+  uploadImgLocal : {
+    x : 207,
+    y : 583,
+    width : 595,
+    height : 595
+  },
+  uploadScale : 10
+}
+
 class App extends Component {
 
   constructor(props, context) {
     super(props, context)
     this.state = {
+      config : config,
       uploading : false,
       uploadImg : undefined,
       uploadClipImg : undefined,
@@ -25,13 +36,6 @@ class App extends Component {
     this.setState({
       proviewImg : img
     })
-  }
-
-  onClipImage(img) {
-      console.log("onClipImage", img)
-      this.setState({
-        proviewImg : img
-      })
   }
 
   onSelectFile(event) {
@@ -61,16 +65,22 @@ class App extends Component {
             ? <Proview {...that.state} ></Proview>
             : (
               !that.state.uploadImg
-              ? <Index onSelectFile={this.onSelectFile.bind(that)} {...that.state} ></Index>
+              ? <Index onSelectFile={that.onSelectFile.bind(that)} {...that.state} ></Index>
               : (
                 !that.state.uploadClipImg
-                ? <ClipUtil onClipImage={that.onClipImage.bind(that)}
+                ? <ClipUtil
                       srcImage={that.state.uploadImg}
                       size={200}
+                      multiple={config.uploadScale}
                       circle={true}
-                      onClipImage={that.onClipImage.bind(that)}
+                      onClipImage={((img) => that.setState({uploadClipImg: img})).bind(that)}
+                      onCancel={(() => that.setState({uploadImg: undefined})).bind(that)}
                       ></ClipUtil>
-                : <Make onOutputImage={that.onOutputImage.bind(that)} {...that.state} ></Make>
+                : <Make
+                      srcImage={that.state.uploadClipImg}
+                      onOutputImage={that.onOutputImage.bind(that)}
+                      {...that.state}
+                      ></Make>
               )
             )
         }
