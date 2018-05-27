@@ -7,6 +7,7 @@ import 'react-weui/build/packages/react-weui.css';
 import Index from "./pages/Index"
 import Make from "./pages/Make"
 import ClipUtil from "./pages/ClipUtil"
+import AttrForm from "./pages/AttrForm"
 import Proview from "./pages/Proview"
 
 const config = {
@@ -26,8 +27,9 @@ class App extends Component {
     this.state = {
       config : config,
       uploading : false,
-      uploadImg : undefined,
-      uploadClipImg : undefined,
+      uploadImg : require("./res/output_bg.png"),
+      uploadClipImg : require("./res/title.png"),
+      showName : undefined,
       proviewImg : undefined,
     }
   }
@@ -76,11 +78,18 @@ class App extends Component {
                       onClipImage={((img) => that.setState({uploadClipImg: img})).bind(that)}
                       onCancel={(() => that.setState({uploadImg: undefined})).bind(that)}
                       ></ClipUtil>
-                : <Make
-                      srcImage={that.state.uploadClipImg}
-                      onOutputImage={that.onOutputImage.bind(that)}
-                      {...that.state}
-                      ></Make>
+                : (
+                  !that.state.showName
+                  ? <AttrForm
+                        {...that.state}
+                        onResult={((obj) => {that.setState({showName: obj.showName});}).bind(that)}
+                        ></AttrForm>
+                  : <Make
+                        srcImage={that.state.uploadClipImg}
+                        onOutputImage={that.onOutputImage.bind(that)}
+                        {...that.state}
+                        ></Make>
+                )
               )
             )
         }

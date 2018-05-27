@@ -38,7 +38,8 @@ class Make extends Component {
   render() {
     let that = this;
     return (
-      <div className="Make" >
+      <div className="Make" style={{textAlign: 'center', margin: '200px 0px'}} >
+        <img src={require("../res/loading.gif")} />
       </div>
     );
   }
