@@ -13,7 +13,7 @@ import Proview from "./pages/Proview"
 const config = {
   uploadImgLocal : {
     x : 210,
-    y : 592,
+    y : 589,
     width : 603,
     height : 603
   },
