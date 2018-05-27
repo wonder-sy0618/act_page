@@ -1,1 +1,8 @@
 
+.ImgProview {
+  text-align: center;
+}
+
+.ImgProview img {
+      border-radius: 100%;
+}

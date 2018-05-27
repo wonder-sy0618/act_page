@@ -31,6 +31,13 @@ class Make extends Component {
       that.props.config.uploadImgLocal.width * that.props.config.uploadScale, that.props.config.uploadImgLocal.height * that.props.config.uploadScale);
     let imgBg = await imgtreat.imageOpen(outputBg);
     cavans.getContext("2d").drawImage(imgBg, 0, 0, cavans.width, cavans.height);
+    await imgtreat.textDraw(cavans, that.props.showName,
+      that.props.config.showName.x * 2, that.props.config.showName.y * 2, {
+        fillStyle : "#e70012",
+        font : that.props.config.showName.fontSize + "px FZShuTi  ",
+        lineSpacing : 1.1,
+        isVertical : true
+      })
     // 导出图片
     that.props.onOutputImage(cavans.toDataURL("image/png"));
   }

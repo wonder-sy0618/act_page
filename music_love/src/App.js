@@ -17,7 +17,12 @@ const config = {
     width : 595,
     height : 595
   },
-  uploadScale : 10
+  uploadScale : 1,
+  showName : {
+    fontSize : 70,
+    x : 366,
+    y : 530
+  }
 }
 
 class App extends Component {
@@ -27,8 +32,8 @@ class App extends Component {
     this.state = {
       config : config,
       uploading : false,
-      uploadImg : require("./res/output_bg.png"),
-      uploadClipImg : require("./res/title.png"),
+      uploadImg : undefined,
+      uploadClipImg : undefined,
       showName : undefined,
       proviewImg : undefined,
     }
