@@ -12,15 +12,15 @@ import Proview from "./pages/Proview"
 
 const config = {
   uploadImgLocal : {
-    x : 207,
-    y : 583,
-    width : 595,
-    height : 595
+    x : 210,
+    y : 592,
+    width : 603,
+    height : 603
   },
   uploadScale : 1,
   showName : {
     fontSize : 70,
-    x : 366,
+    x : 455,
     y : 530
   }
 }
