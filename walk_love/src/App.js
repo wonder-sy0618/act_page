@@ -19,9 +19,9 @@ const config = {
   },
   uploadScale : 1,
   showName : {
-    fontSize : 70,
-    x : 455,
-    y : 530
+    fontSize : 60,
+    x : 255,
+    y : 246
   }
 }
 

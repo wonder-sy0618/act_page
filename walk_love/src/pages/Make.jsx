@@ -33,10 +33,10 @@ class Make extends Component {
     cavans.getContext("2d").drawImage(imgBg, 0, 0, cavans.width, cavans.height);
     await imgtreat.textDraw(cavans, that.props.showName,
       that.props.config.showName.x * 2, that.props.config.showName.y * 2, {
-        fillStyle : "#e70012",
+        fillStyle : "#fc71a1",
         font : that.props.config.showName.fontSize + "px FZShuTi  ",
-        lineSpacing : 1.1,
-        isVertical : true
+        wordSpacing : 1.1,
+        isVertical : false
       })
     // 导出图片
     that.props.onOutputImage(cavans.toDataURL("image/png"));
