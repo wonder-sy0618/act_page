@@ -16,7 +16,7 @@
   vertical-align: middle;
   text-decoration: none;
   font: bold 12px/25px Arial, sans-serif;
-  background: #98d2ff;
+  background: #386db9;
 }
 
 
@@ -40,7 +40,7 @@
   position: absolute;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  background: #98d2ff;
+  background: #386db9;
 }
 
 .Index .SectionUpload .btnUpload.disabled {
@@ -93,6 +93,6 @@
 .btnContent span {
   font-size: 15px;
   font-weight: 100;
-  color: #fc71a1;
+  color: #ffffff;
   font-family: cursive;
 }
