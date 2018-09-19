@@ -97,3 +97,12 @@
   color: #f7f7f7;
   font-family: cursive;
 }
+
+.react-weui-infiniteloader__content {
+  height: 100%;
+}
+.weui-article {
+  height: 100%;
+}
+
+
