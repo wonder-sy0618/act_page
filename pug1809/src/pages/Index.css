@@ -4,6 +4,7 @@
   line-height: 200px;
   text-align: center;
   position: relative;
+  margin-top: 150px;
 }
 
 .Index .SectionUpload .btnUpload {
@@ -16,7 +17,7 @@
   vertical-align: middle;
   text-decoration: none;
   font: bold 12px/25px Arial, sans-serif;
-  background: #ff9e08;
+  background: #23b3e8;
 }
 
 
@@ -40,7 +41,7 @@
   position: absolute;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  background: #ff9e08;
+  background: #23b3e8;
 }
 
 .Index .SectionUpload .btnUpload.disabled {
