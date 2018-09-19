@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-import imgTitle from "../res/star1.jpg"
+import imgTitle from "../res/star1_comp.jpg"
 
 export default (props) => (
   <img src={imgTitle} className="Title" style={{
