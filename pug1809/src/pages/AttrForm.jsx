@@ -54,7 +54,6 @@ class AttrForm extends Component {
             </ButtonArea>
           </section>
         </Article>
-        <Foot></Foot>
       </Page>
     );
   }
