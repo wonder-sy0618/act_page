@@ -10,7 +10,7 @@ class ClipUtil extends Component {
 
   resetOrientation(srcBase64, srcOrientation, callback) {
     if (!srcOrientation) {
-      callback(srcBase64.toDataURL("image/png"));
+      callback(srcBase64);
       return;
     }
 
