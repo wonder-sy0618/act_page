@@ -1,16 +1,19 @@
+import React, { Component } from "react";
 
-import React, { Component } from 'react';
+import imgTitle from "../res/index_bg.jpg";
 
-import imgTitle from "../res/star1_comp.jpg"
-
-export default (props) => (
-  <img src={imgTitle} className="Title" style={{
-    "height": window.innerHeight,
-    "width": 1920 / 1280 * window.innerHeight,
-    "position": "fixed",
-    "top": 0,
-    "left": 0,
-    "maxWidth": "10000%",
-    "marginLeft": "-120px",
-  }} />
-)
+export default props => (
+  <img
+    src={imgTitle}
+    className="Title"
+    style={{
+      height: window.innerHeight,
+      width: (600 / 530) * window.innerHeight,
+      position: "fixed",
+      top: 0,
+      left: 0,
+      maxWidth: "10000%",
+      marginLeft: "-190px"
+    }}
+  />
+);
