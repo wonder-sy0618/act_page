@@ -8,11 +8,11 @@ import iconMake from "../res/icon_make.svg";
 import "./Index.css";
 
 export default props => (
-  <Page className="Index" transition={false} ptr={false}>
-    <section>
+  <div className="Index">
+    <div>
       <Title />
-    </section>
-    <section className="SectionUpload">
+    </div>
+    <div className="SectionUpload">
       <a
         href="#"
         className={props.uploading ? "btnUpload disabled" : "btnUpload"}
@@ -26,7 +26,7 @@ export default props => (
           <span>参与活动</span>
         </div>
       </a>
-    </section>
+    </div>
     <Foot />
-  </Page>
+  </div>
 );
