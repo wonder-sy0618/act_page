@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "alloycrop": "^1.0.4",
+    "exif-js": "^2.3.0"
+  }
+}

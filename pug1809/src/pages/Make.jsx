@@ -34,11 +34,10 @@ class Make extends Component {
     let imgBg = await imgtreat.imageOpen(outputBg);
     cavans.getContext("2d").drawImage(imgBg, 0, 0, cavans.width, cavans.height);
     // 
-    console.log(that.props.showName.length)
     await imgtreat.textDraw(cavans, that.props.showName,
       that.props.config.showName.x * 2, that.props.config.showName.y * 2, {
-        fillStyle : "white ",
-        font : that.props.config.showName.fontSize + "px nameShowFont bolder ",
+        fillStyle : "white",
+        font : that.props.config.showName.fontSize + "px nameShowFont bolder",
         wordSpacing : 1.3 - (that.props.showName.length - 2) * 0.2,
         middlePos : true,
         isVertical : false
