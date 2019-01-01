@@ -37,20 +37,25 @@ class Make extends Component {
   }
 
   async upload(uploadClipImg, name) {
-    let token = await fetch(
-      "https://service-1fx5arpi-1256005858.ap-guangzhou.apigateway.myqcloud.com/release/cos_server"
-    ).then(resp => resp.json());
-    // Split the base64 string in data and contentType
-    var block = uploadClipImg.split(";");
-    // Get the content type of the image
-    var contentType = block[0].split(":")[1]; // In this case "image/gif"
-    // get the real base64 content of the file
-    var realData = block[1].split(",")[1]; // In this case "R0lGODlhPQBEAPeoAJosM...."
-    // Convert it to a blob to upload
-    var blob = this.b64toBlob(realData, contentType);
-    console.log(token);
-    await fetch(token.uploadUrl, { method: "PUT", body: blob });
-    return "code=" + token.code + "&name=" + encodeURIComponent(name);
+    try {
+      let token = await fetch(
+        "https://service-1fx5arpi-1256005858.ap-guangzhou.apigateway.myqcloud.com/release/cos_server"
+      ).then(resp => resp.json());
+      // Split the base64 string in data and contentType
+      var block = uploadClipImg.split(";");
+      // Get the content type of the image
+      var contentType = block[0].split(":")[1]; // In this case "image/gif"
+      // get the real base64 content of the file
+      var realData = block[1].split(",")[1]; // In this case "R0lGODlhPQBEAPeoAJosM...."
+      // Convert it to a blob to upload
+      var blob = this.b64toBlob(realData, contentType);
+      console.log(token);
+      await fetch(token.uploadUrl, { method: "PUT", body: blob });
+      return "code=" + token.code + "&name=" + encodeURIComponent(name);
+    } catch (e) {
+      console.log(e);
+      return "";
+    }
   }
 
   async componentDidMount() {
