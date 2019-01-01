@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import imgtreat from "../service/imgtreat/";
 import Title from "../components/Title";
+import QRCode from "qrcode";
 
 import "./Make.css";
 import outputBg from "../res/bg.png";
@@ -22,6 +23,27 @@ class Make extends Component {
       };
     });
     let cavans = await imgtreat.create(img.width, img.height);
+    //
+    QRCode.toDataURL(
+      "https://wonder-sy0618.github.io/act_page/mom1901/build/index.html"
+    )
+      .then(url => {
+        let imgUpload = imgtreat.imageOpen(url);
+        return imgUpload;
+      })
+      .then(imgUpload => {
+        cavans
+          .getContext("2d")
+          .drawImage(
+            imgUpload,
+            that.props.config.uploadImgLocal.x - 2,
+            that.props.config.uploadImgLocal.y + 655,
+            that.props.config.uploadImgLocal.width *
+              that.props.config.uploadScale,
+            that.props.config.uploadImgLocal.height *
+              that.props.config.uploadScale
+          );
+      });
     //
     let imgUpload = await imgtreat.imageOpen(that.props.uploadClipImg);
     cavans
