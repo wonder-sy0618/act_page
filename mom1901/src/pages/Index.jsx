@@ -10,7 +10,7 @@ import "./Index.css";
 export default props => (
   <div className="Index">
     <div>
-      <Title />
+      <Title {...props} />
     </div>
     <div className="SectionUpload">
       <a

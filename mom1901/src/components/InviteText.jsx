@@ -10,19 +10,37 @@ export default props => (
       width: "100%"
     }}
   >
-    <div>
-      <span>您的好友</span>
-    </div>
-    {/* <div>
-      <div style={{ paddingRight: 140, fontSize: 14 }}>您的好友</div>
+    {props.prev && props.prev.headimg ? (
       <div>
-        <img
-          src="https://wx.qlogo.cn/mmopen/vi_32/HYBC7oljpX0iaxMXF8vKCbf2vttNE9NgMZhAQS6t3hdHttXSdH2DBnwqkibgfRgjxa1lG06HGYwel0MuQNZhdwaQ/132"
-          style={{ height: 20, margin: "0px 10px" }}
-        />
-        石莹
+        <div style={{ paddingRight: 140, fontSize: 14 }}>您的好友</div>
+        <div
+          style={{
+            height: 48,
+            lineHeight: 48,
+            display: "inline-flex"
+          }}
+        >
+          <img
+            src={props.prev.headimg}
+            alt=""
+            style={{ height: 48, margin: "0px 10px" }}
+          />
+          <div
+            style={{
+              height: 48,
+              lineHeight: "48px",
+              fontFamily: "楷体"
+            }}
+          >
+            {props.prev.name}
+          </div>
+        </div>
       </div>
-    </div> */}
+    ) : (
+      <div>
+        <span>您的好友</span>
+      </div>
+    )}
     <div style={{ marginTop: 20 }}>
       邀请您为
       <img src={require("../res/head1.png")} style={{ width: 100 }} />

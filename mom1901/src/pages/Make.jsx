@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import imgtreat from "../service/imgtreat/";
-import Title from "../components/Title";
 import QRCode from "qrcode";
 
 import "./Make.css";
@@ -11,6 +10,47 @@ class Make extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {};
+  }
+
+  b64toBlob(b64Data, contentType, sliceSize) {
+    contentType = contentType || "";
+    sliceSize = sliceSize || 512;
+
+    var byteCharacters = atob(b64Data);
+    var byteArrays = [];
+
+    for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      var byteNumbers = new Array(slice.length);
+      for (var i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      var byteArray = new Uint8Array(byteNumbers);
+
+      byteArrays.push(byteArray);
+    }
+
+    var blob = new Blob(byteArrays, { type: contentType });
+    return blob;
+  }
+
+  async upload(uploadClipImg, name) {
+    let token = await fetch(
+      "https://service-1fx5arpi-1256005858.ap-guangzhou.apigateway.myqcloud.com/release/cos_server"
+    ).then(resp => resp.json());
+    // Split the base64 string in data and contentType
+    var block = uploadClipImg.split(";");
+    // Get the content type of the image
+    var contentType = block[0].split(":")[1]; // In this case "image/gif"
+    // get the real base64 content of the file
+    var realData = block[1].split(",")[1]; // In this case "R0lGODlhPQBEAPeoAJosM...."
+    // Convert it to a blob to upload
+    var blob = this.b64toBlob(realData, contentType);
+    console.log(token);
+    await fetch(token.uploadUrl, { method: "PUT", body: blob });
+    return "code=" + token.code + "&name=" + encodeURIComponent(name);
   }
 
   async componentDidMount() {
@@ -23,11 +63,18 @@ class Make extends Component {
       };
     });
     let cavans = await imgtreat.create(img.width, img.height);
-    //
-    let shareUrl = await QRCode.toDataURL(
-      "https://wonder-sy0618.github.io/act_page/mom1901/build/index.html"
+    // request code
+    let querystring = await this.upload(
+      that.props.uploadClipImg,
+      that.props.showName
     );
-    let shareQrcode = await imgtreat.imageOpen(shareUrl);
+    // share url
+    let shareUrl =
+      "https://wonder-sy0618.github.io/act_page/mom1901/build/index.html?" +
+      querystring;
+    console.log("share url", shareUrl);
+    let shareUrlQrcodeBase64 = await QRCode.toDataURL(shareUrl);
+    let shareQrcode = await imgtreat.imageOpen(shareUrlQrcodeBase64);
     cavans
       .getContext("2d")
       .drawImage(

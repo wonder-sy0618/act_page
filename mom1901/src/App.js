@@ -3,6 +3,7 @@ import "./App.css";
 
 import "weui";
 import "react-weui/build/packages/react-weui.css";
+import urlParse from "url-parse";
 
 import Index from "./pages/Index";
 import Make from "./pages/Make";
@@ -28,7 +29,16 @@ const config = {
 class App extends Component {
   constructor(props, context) {
     super(props, context);
+    let urlInfo = urlParse(window.location.href, true);
     this.state = {
+      prev: {
+        headimg: urlInfo.query["code"]
+          ? "https://act-page-1256005858.cos.ap-chengdu.myqcloud.com/headimg/" +
+            urlInfo.query["code"] +
+            ".png"
+          : undefined,
+        name: urlInfo.query["name"] ? urlInfo.query["name"] : undefined
+      },
       config: config,
       uploading: false,
       uploadImg: undefined,
