@@ -3,7 +3,8 @@
   line-height: 200px;
   text-align: center;
   position: relative;
-  margin-top: 280px;
+  margin-top: 315px;
+  margin-left: 19px;
 }
 
 .Index .SectionUpload .btnUpload {
@@ -16,7 +17,7 @@
   vertical-align: middle;
   text-decoration: none;
   font: bold 12px/25px Arial, sans-serif;
-  background: #23b3e8;
+  background: #f0eeb9;
 }
 
 .Index .SectionUpload .btnUpload input {
@@ -39,7 +40,7 @@
   position: absolute;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  background: #23b3e8;
+  background: #f0eeb9;
 }
 
 .Index .SectionUpload .btnUpload.disabled {
@@ -111,7 +112,7 @@
 .btnContent span {
   font-size: 15px;
   font-weight: 100;
-  color: #f7f7f7;
+  color: #d8385a;
   font-family: cursive;
 }
 

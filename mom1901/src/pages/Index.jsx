@@ -12,7 +12,10 @@ export default props => (
     <div>
       <Title {...props} />
     </div>
-    <div className="SectionUpload">
+    <div
+      className="SectionUpload"
+      style={props.prev && props.prev.headimg ? { marginTop: "335px" } : {}}
+    >
       <a
         href="#"
         className={props.uploading ? "btnUpload disabled" : "btnUpload"}
