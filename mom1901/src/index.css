@@ -3,10 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-@font-face {
+/* @font-face {
   font-family: nameShowFont;
   src: url("./res/webfont/sim.ttf") format("truetype"),
     url("./res/webfont/sim.woff") format("woff"),
     url("./res/webfont/sim.svg#font") format("svg");
   font-weight: bold;
-}
+} */
