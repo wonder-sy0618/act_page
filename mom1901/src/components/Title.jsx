@@ -12,15 +12,8 @@ export default props => (
       }
       className="Title"
       style={{
-        height:
-          window.innerHeight > window.innerWidth
-            ? window.innerHeight
-            : window.innerWidth,
-        width:
-          (1300 / 2188) *
-          (window.innerHeight > window.innerWidth
-            ? window.innerHeight
-            : window.innerWidth),
+        width: "100%",
+        height: (2188 / 1300) * window.innerWidth,
         position: "fixed",
         top: 0,
         left: 0

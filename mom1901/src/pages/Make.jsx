@@ -39,7 +39,8 @@ class Make extends Component {
   async upload(uploadClipImg, name) {
     try {
       let token = await fetch(
-        "https://service-1fx5arpi-1256005858.ap-guangzhou.apigateway.myqcloud.com/release/cos_server"
+        "https://service-1fx5arpi-1256005858.ap-guangzhou.apigateway.myqcloud.com/release/cos_server?name=" +
+          encodeURIComponent(name)
       ).then(resp => resp.json());
       // Split the base64 string in data and contentType
       var block = uploadClipImg.split(";");

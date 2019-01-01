@@ -4,7 +4,7 @@ export default props => (
   <div
     style={{
       position: "fixed",
-      top: 175,
+      top: (600 / 1300) * window.innerWidth,
       textAlign: "center",
       width: "100%"
     }}
@@ -12,12 +12,14 @@ export default props => (
     <img
       src={props.prev.headimg}
       alt=""
-      style={{ height: 73, marginLeft: "22px" }}
+      style={{
+        height: (250 / 1300) * window.innerWidth,
+        marginLeft: "2px"
+      }}
     />
     <div
       style={{
         marginTop: "-5px",
-        marginLeft: "20px",
         fontSize: "13px",
         color: "white"
       }}
