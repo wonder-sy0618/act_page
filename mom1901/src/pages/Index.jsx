@@ -8,7 +8,10 @@ import iconMake from "../res/icon_make.svg";
 import "./Index.css";
 
 export default props => (
-  <div className="Index">
+  <div
+    className="Index"
+    style={{ height: window.innerHeight, backgroundColor: "#d8385a" }}
+  >
     <div>
       <Title {...props} />
     </div>
