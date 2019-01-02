@@ -17,14 +17,10 @@ export default props => (
       style={
         props.prev && props.prev.headimg
           ? {
-              marginTop: (1150 / 1300) * window.innerWidth + "px",
-              height: window.innerHeight - (1150 / 1300) * window.innerWidth,
-              backgroundColor: "#d8385a"
+              marginTop: (1150 / 1300) * window.innerWidth + "px"
             }
           : {
-              marginTop: (1100 / 1300) * window.innerWidth + "px",
-              height: window.innerHeight - (1150 / 1300) * window.innerWidth,
-              backgroundColor: "#d8385a"
+              marginTop: (1100 / 1300) * window.innerWidth + "px"
             }
       }
     >
