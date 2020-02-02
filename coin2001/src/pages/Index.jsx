@@ -25,9 +25,7 @@ class Index extends Component {
         <div
           className="SectionUpload"
           style={
-            this.props.prev && this.props.prev.headimg
-              ? { marginTop: (1150 / 1300) * window.innerWidth + "px" }
-              : { marginTop: (1100 / 1300) * window.innerWidth + "px" }
+            { marginTop: (600 / 1300) * window.innerWidth + "px" }
           }
         >
           <a
@@ -36,8 +34,8 @@ class Index extends Component {
               this.props.uploading ? "btnUpload disabled" : "btnUpload"
             }
             style={{
-              width: (420 / 1300) * window.innerWidth,
-              height: (420 / 1300) * window.innerWidth
+              width: (290 / 1300) * window.innerWidth,
+              height: (290 / 1300) * window.innerWidth
             }}
           >
             <input
@@ -48,24 +46,30 @@ class Index extends Component {
             <div
               className="shadow s1"
               style={{
-                width: (420 / 1300) * window.innerWidth,
-                height: (420 / 1300) * window.innerWidth
+                width: (290 / 1300) * window.innerWidth,
+                height: (290 / 1300) * window.innerWidth
               }}
             />
             <div
               className="shadow s2"
               style={{
-                width: (420 / 1300) * window.innerWidth,
-                height: (420 / 1300) * window.innerWidth
+                width: (290 / 1300) * window.innerWidth,
+                height: (290 / 1300) * window.innerWidth
               }}
             />
             <div className="btnContent">
-              <img src={iconMake} />
-              <br />
-              <span>参与活动</span>
+              <span>发起倡议</span>
             </div>
           </a>
         </div>
+        <div style={{
+          width: window.innerWidth,
+          height: window.innerWidth,
+          position: "fixed",
+          bottom: 0,
+          backgroundColor: "#620b0d",
+          zIndex: -1
+        }} ></div>
         <Foot />
       </div>
     );

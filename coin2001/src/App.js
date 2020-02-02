@@ -13,16 +13,16 @@ import Proview from "./pages/Proview";
 
 const config = {
   uploadImgLocal: {
-    x: 227,
-    y: 36,
-    width: 160,
-    height: 160
+    x: 504,
+    y: 45,
+    width: 288,
+    height: 288
   },
   uploadScale: 1,
   showName: {
-    fontSize: 35,
-    x: 151,
-    y: 203
+    fontSize: 42,
+    x: 391,
+    y: 343  
   }
 };
 
@@ -31,19 +31,14 @@ class App extends Component {
     super(props, context);
     let urlInfo = urlParse(window.location.href, true);
     this.state = {
-      prev: {
-        headimg: urlInfo.query["code"]
-          ? "https://act-page-1256005858.cos.ap-chengdu.myqcloud.com/headimg/" +
-            urlInfo.query["code"] +
-            ".png"
-          : undefined,
-        name: urlInfo.query["name"] ? urlInfo.query["name"] : undefined
-      },
       config: config,
       uploading: false,
+      // uploadImg: require('./res/upload_demo.png'),
+      // uploadClipImg: require('./res/upload_demo.png'),
       uploadImg: undefined,
       uploadClipImg: undefined,
       showName: undefined,
+      bgImg: undefined,
       proviewImg: undefined
     };
   }
@@ -96,7 +91,7 @@ class App extends Component {
           <AttrForm
             {...that.state}
             onResult={(obj => {
-              that.setState({ showName: obj.showName });
+              that.setState({ showName: obj.showName, bgImg: obj.bgImg });
             }).bind(that)}
           />
         ) : (
