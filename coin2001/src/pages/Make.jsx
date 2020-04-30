@@ -43,7 +43,7 @@ class Make extends Component {
       that.props.config.showName.y * 2,
       {
         fillStyle: "white",
-        font: that.props.config.showName.fontSize + 'px "楷体" ',
+        font: "bold " + that.props.config.showName.fontSize + 'px "楷体" ',
         wordSpacing: 1.7 - (that.props.showName.length - 2) * 0.2,
         middlePos: true,
         isVertical: false

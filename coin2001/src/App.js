@@ -20,9 +20,9 @@ const config = {
   },
   uploadScale: 1,
   showName: {
-    fontSize: 42,
-    x: 391,
-    y: 343  
+    fontSize: 60,
+    x: 405,
+    y: 340
   }
 };
 
@@ -35,6 +35,8 @@ class App extends Component {
       uploading: false,
       // uploadImg: require('./res/upload_demo.png'),
       // uploadClipImg: require('./res/upload_demo.png'),
+      // showName: "石莹",
+      // bgImg: require('./res/bg_1.png'),
       uploadImg: undefined,
       uploadClipImg: undefined,
       showName: undefined,
